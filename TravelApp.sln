@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelApp.API", "TravelApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelApp.Domain", "TravelApp.Domain\TravelApp.Domain.csproj", "{B9DE4512-3F21-4DDC-A26B-3DAA1C0F909C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelApp.Infrastructure", "TravelApp.Infrastructure\TravelApp.Infrastructure.csproj", "{1A6AD77B-8DFE-4B20-A215-DFF1820BBE94}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{047D3106-8438-4C1B-B506-5443F985B5E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B9DE4512-3F21-4DDC-A26B-3DAA1C0F909C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9DE4512-3F21-4DDC-A26B-3DAA1C0F909C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9DE4512-3F21-4DDC-A26B-3DAA1C0F909C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A6AD77B-8DFE-4B20-A215-DFF1820BBE94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A6AD77B-8DFE-4B20-A215-DFF1820BBE94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A6AD77B-8DFE-4B20-A215-DFF1820BBE94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A6AD77B-8DFE-4B20-A215-DFF1820BBE94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{047D3106-8438-4C1B-B506-5443F985B5E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{047D3106-8438-4C1B-B506-5443F985B5E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{047D3106-8438-4C1B-B506-5443F985B5E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{047D3106-8438-4C1B-B506-5443F985B5E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TravelApp.Domain.Entities
 {
-    public  class TravelApplication
+    public class OperationClaim
     {
-        public int TripId { get; set; }
-        public int UserId { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  travelapp.api:
+    container_name: travelapp.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+    depends_on:
+      - travelappSqldb
+    ports:
+      - "80"
+      - "443"
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  travelappSqldb:
+    container_name: WepApiSqldb 
+    ports:
+      - "1433:1433" 
+    environment:
+      SA_PASSWORD: "Odb12345678"
+      ACCEPT_EULA: "Y"

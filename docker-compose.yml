@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  travelapp.api:
+    image: ${DOCKER_REGISTRY-}travelappapi
+    build:
+      context: .
+      dockerfile: TravelApp.API/Dockerfile
+  travelappSqldb:
+    image: mcr.microsoft.com/mssql/server
