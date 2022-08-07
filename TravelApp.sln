@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelApp.API", "TravelApp.API\TravelApp.API.csproj", "{C2CEC8ED-0CF6-41B4-9076-53AB495B85BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelApp.Domain", "TravelApp.Domain\TravelApp.Domain.csproj", "{B9DE4512-3F21-4DDC-A26B-3DAA1C0F909C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2CEC8ED-0CF6-41B4-9076-53AB495B85BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2CEC8ED-0CF6-41B4-9076-53AB495B85BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2CEC8ED-0CF6-41B4-9076-53AB495B85BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2CEC8ED-0CF6-41B4-9076-53AB495B85BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9DE4512-3F21-4DDC-A26B-3DAA1C0F909C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DE4512-3F21-4DDC-A26B-3DAA1C0F909C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DE4512-3F21-4DDC-A26B-3DAA1C0F909C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DE4512-3F21-4DDC-A26B-3DAA1C0F909C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1359783E-1614-4962-8821-70BFC7F559C8}
+	EndGlobalSection
+EndGlobal
