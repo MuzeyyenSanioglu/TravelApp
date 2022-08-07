@@ -17,21 +17,25 @@ namespace TravelApp.API.Controllers
     public class TravelController : ControllerBase
     {
         private readonly ITravelRepository _travelRespository;
+        private readonly IUserRepository _userRepository;   
         private readonly IMapper _mapper;
 
-        public TravelController(ITravelRepository travelRespository, IMapper mapper)
+        public TravelController(ITravelRepository travelRespository, IMapper mapper,IUserRepository userRepository)
         {
             _travelRespository = travelRespository;
             _mapper = mapper;
+            _userRepository = userRepository;
            
         }
         [HttpPost]
         public ActionResult<Result> Create(CreateTravelDto createTravelDto)
         {
             Result result = new Result();
+            string username = this.User.Claims.First(i => i.Type == "username").Value;
+
             Travel entity = _mapper.Map<Travel>(createTravelDto);
             entity.CreatedDate =DateTime.Now;
-            entity.UserId = int.Parse(this.User.Claims.First(i => i.Type == "Id").Value);
+            entity.UserId = _userRepository.GetUserByUsername(username).Data.Id;
             entity.NumberOfAvailebleSeat = createTravelDto.NumberOfSeat;
             Result<Travel> travelCreateResult = _travelRespository.Add(entity);
             if (!travelCreateResult.IsSuccess)
@@ -44,8 +48,8 @@ namespace TravelApp.API.Controllers
             result.ObjectId = travelCreateResult.Data.Id.ToString();
             return Ok(result);
         }
-        [HttpPost]
-        public ActionResult<Result> ApplicationTravel(int travelId)
+        [HttpPost("{travelId}")]
+        public ActionResult<Result> ApplicationTravel([FromRoute] int travelId)
         {
             Result result = new Result();
             Result<Travel> travel = _travelRespository.GetById(travelId);
@@ -93,8 +97,8 @@ namespace TravelApp.API.Controllers
         }
 
 
-        [HttpGet]
-        public ActionResult<Result<List<TravelsDto>>> GetTravelsForRoad(string startCity,string endCity)
+        [HttpGet("{startCity}/{endCity}")]
+        public ActionResult<Result<List<TravelsDto>>> GetTravelsForRoad([FromRoute]string startCity, [FromRoute] string endCity)
         {
             Result<List<TravelsDto>> result = new Result<List<TravelsDto>>();
             Result<List<Travel>> travelsResult = _travelRespository.GetTravelsFiltersByRoadFilter(startCity,endCity);
@@ -110,8 +114,8 @@ namespace TravelApp.API.Controllers
             return Ok(result);
         }
 
-        [HttpPut]
-        public ActionResult<Result> UpdateTravelsPublicition(int travelId, bool ispublication)
+        [HttpPut("{travelId}/{ispublication}")]
+        public ActionResult<Result> UpdateTravelsPublicition([FromRoute] int travelId, [FromRoute] bool ispublication)
         {
             Result result = new Result();
             Result<Travel> travel = _travelRespository.GetById(travelId);
@@ -120,7 +124,9 @@ namespace TravelApp.API.Controllers
                 result.SetFailure(travel.ErrorMessage);
                 return NotFound(result);
             }
-            if(travel.Data.UserId != int.Parse(this.User.Claims.First(i => i.Type == "Id").Value))
+            string username = this.User.Claims.First(i => i.Type == "username").Value;
+            int currentUserID = _userRepository.GetUserByUsername(username).Data.Id;
+            if (travel.Data.UserId != currentUserID)
             {
                 result.SetFailure("You have not permission");
                 return NotFound(result);

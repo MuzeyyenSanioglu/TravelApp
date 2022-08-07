@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TravelApp.Domain.Repositories;
 using TravelApp.Domain.Repositories.Base;
+using TravelApp.Infrastructure.Concrete;
+using TravelApp.Infrastructure.Concrete.Interfaces;
 using TravelApp.Infrastructure.Data;
 using TravelApp.Infrastructure.Repositories;
 using TravelApp.Infrastructure.Repositories.Base;
@@ -25,6 +27,8 @@ namespace TravelApp.Infrastructure
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<ITravelRepository, TravelRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+
+            services.AddTransient<IPasswordHashing, BcryptPasswordHashing>();
             return services;
         }
 
