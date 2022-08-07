@@ -9,13 +9,13 @@ services:
     depends_on:
       - travelappSqldb
     ports:
-      - "80"
-      - "443"
+      - "8003:80"
+
     volumes:
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${HOME}/ASP.NET/Https:/root/.aspnet/https:ro
 
   travelappSqldb:
-    container_name: WepApiSqldb 
+    container_name: travelappSqldb 
     ports:
       - "1433:1433" 
     environment:
